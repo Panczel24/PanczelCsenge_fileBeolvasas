@@ -21,6 +21,10 @@
 			Rendezes(karakterek);
             Console.WriteLine();
 			KarakterErossegSzintFelett(karakterek);
+            Console.WriteLine();
+			KarakterStats(karakterek, 5);
+
+
 
 
 		}
@@ -109,6 +113,21 @@
 			}
 		}
 
+		//6.feladat
+		//Bogdán tanárnő mondta hogy nem kell új oszályt csinálni
+
+		static void KarakterStats(List<Karakter> karakterek, int szint)
+		{
+			Console.WriteLine($"Ezeknek a karaktereknek nayobb az ereje mint {szint}:");
+
+			for (int i = 0;i < karakterek.Count; i++)
+			{
+				if (karakterek[i].Szint > szint)
+				{
+					Console.WriteLine(karakterek[i]);
+                }
+			}
+		}
 
 
 
@@ -118,5 +137,9 @@
 
 
 
-	}
+
+
+
+
+		}
 }
