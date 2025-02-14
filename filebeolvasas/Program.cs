@@ -22,7 +22,10 @@
             Console.WriteLine();
 			KarakterErossegSzintFelett(karakterek);
             Console.WriteLine();
-			KarakterStats(karakterek, 5);
+			KarakterStats(karakterek, 50);
+            Console.WriteLine();
+			LegjobbHarom(karakterek.ToList());
+
 
 
 
@@ -129,17 +132,40 @@
 			}
 		}
 
+		//7. feladat - Bogdán tanárnő azt mondta nem tanultuk ezért nem kell
 
+		//8. feladat
+		static void LegjobbHarom(List<Karakter> karakterek)
+		{
+			Console.WriteLine($"Ez a 3 legjobb karakter:");
 
-
-
-
-
-
-
-
-
-
-
+			for (int i = 0; i < karakterek.Count - 1; i++)
+			{
+				for (int j = i + 1; j < karakterek.Count; j++)
+				{
+					if (karakterek[i].Ero > karakterek[j].Ero)
+					{
+						Karakter csere = karakterek[i];
+						karakterek[i] = karakterek[j];
+						karakterek[j] = csere;
+					}
+				}
+			}
+			for (int i = 0; i < 3; i++)
+			{
+				Console.WriteLine(karakterek[i]);
+            }
 		}
+
+
+
+
+
+
+
+
+
+
+
+	}
 }
