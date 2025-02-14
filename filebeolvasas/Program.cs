@@ -9,26 +9,27 @@
 			Beolvasas("karakterek.txt", karakterek);
 			foreach (var item in karakterek)
 			{
-                //Console.WriteLine(item.ToString());
+				//Console.WriteLine(item.ToString());
 				Console.WriteLine(item);
 
 			}
-            Console.WriteLine();
-            Legnagyobb(karakterek);
-            Console.WriteLine();
+			Console.WriteLine();
+			Legnagyobb(karakterek);
+			Console.WriteLine();
 			Atlagszint(karakterek);
-            Console.WriteLine();
+			Console.WriteLine();
 			Rendezes(karakterek);
-            Console.WriteLine();
+			Console.WriteLine();
 			KarakterErossegSzintFelett(karakterek);
-            Console.WriteLine();
+			Console.WriteLine();
 			KarakterStats(karakterek, 7);
-            Console.WriteLine();
+			Console.WriteLine();
 			LegjobbHarom(karakterek.ToList());
-            Console.WriteLine();
+			Console.WriteLine();
 			Rangsorolas(karakterek);
-            Console.WriteLine();
+			Console.WriteLine();
 			//Kombinacio(karakterek.ToList());
+			Csata(karakterek, 5, 35);
 
 
 
@@ -59,7 +60,7 @@
 		}
 
 		//2.feladat
-		static void Legnagyobb(List<Karakter> karakterek) { 
+		static void Legnagyobb(List<Karakter> karakterek) {
 			//legnagyobb karakter
 			Karakter valtozo = karakterek[0];
 			for (int i = 0; i < karakterek.Count; i++)
@@ -69,9 +70,9 @@
 					valtozo = karakterek[i];
 				}
 			}
-            Console.WriteLine($"ez a legnagyobb karakter: {valtozo.Nev}, {valtozo.Szint},  {valtozo.Ero} ");
+			Console.WriteLine($"Ez a legnagyobb karakter: {valtozo.Nev}, szintje:{valtozo.Szint}, ereje {valtozo.Ero} ");
 
-        }
+		}
 
 		//3.feladat
 		static void Atlagszint(List<Karakter> karakterek)
@@ -82,30 +83,30 @@
 				atlag += karakterek[i].Szint;
 			}
 			atlag = atlag / karakterek.Count;
-			Console.WriteLine($"ez az átlagszint: {atlag} ");
+			Console.WriteLine($"Ez az átlagszint: {atlag} ");
 		}
 
 		//4.feladat
 		static void Rendezes(List<Karakter> karakterek)
 		{
 			//Ezt együtt csináltuk Bogdán tanárnővel
-			for (int i = 0;i < karakterek.Count-1; i++)
+			for (int i = 0; i < karakterek.Count - 1; i++)
 			{
-				for(int j = i+1; j < karakterek.Count; j++)
+				for (int j = i + 1; j < karakterek.Count; j++)
 				{
 					if (karakterek[i].Ero > karakterek[j].Ero)
 					{
 						Karakter csere = karakterek[i];
-						karakterek [i] = karakterek[j];
+						karakterek[i] = karakterek[j];
 						karakterek[j] = csere;
 					}
 				}
 			}
-            Console.WriteLine("Erősség szerinti sorrend");
-            foreach (var tem in karakterek)
+			Console.WriteLine("Erősség szerinti sorrend");
+			foreach (var tem in karakterek)
 			{
 				Console.WriteLine(tem);
-            }
+			}
 		}
 
 		//5.feladat
@@ -117,9 +118,27 @@
 				if (karakterek[i].Ero > 50)
 				{
 					Console.WriteLine(karakterek[i]);
-                }
+				}
 			}
-		}
+            Console.WriteLine();
+            //VAGY
+            Console.WriteLine("Eléri e a karakter az 50-es erősséget?");
+            bool eleriEaSzintet = false;
+            for (int i = 0; i < karakterek.Count; i++)
+            {
+                if (karakterek[i].Ero >= 50)
+                {
+                    eleriEaSzintet =true;
+					Console.WriteLine(karakterek[i] + " : " + eleriEaSzintet );
+				}
+				else
+				{
+                    eleriEaSzintet =false;
+                    Console.WriteLine(karakterek[i] + " : " + eleriEaSzintet);
+                }
+            }
+
+        }
 
 		//6.feladat
 		//Bogdán tanárnő mondta hogy nem kell új oszályt csinálni
@@ -128,12 +147,12 @@
 		{
 			Console.WriteLine($"Ezeknek a karaktereknek nayobb a szintje mint {szint}:");
 
-			for (int i = 0;i < karakterek.Count; i++)
+			for (int i = 0; i < karakterek.Count; i++)
 			{
 				if (karakterek[i].Szint > szint)
 				{
 					Console.WriteLine(karakterek[i]);
-                }
+				}
 			}
 		}
 
@@ -148,7 +167,7 @@
 			{
 				for (int j = i + 1; j < karakterek.Count; j++)
 				{
-					if (karakterek[i].EroSzint > karakterek[j].Ero)
+					if (karakterek[i].EroSzint < karakterek[j].EroSzint)
 					{
 						Karakter csere = karakterek[i];
 						karakterek[i] = karakterek[j];
@@ -159,13 +178,13 @@
 			for (int i = 0; i < 3; i++)
 			{
 				Console.WriteLine(karakterek[i]);
-            }
+			}
 		}
 
 		//9.feladat
 		static void Kombinacio(List<Karakter> karakterek)
 		{
-		Console.WriteLine();
+			Console.WriteLine();
 			foreach (var item in karakterek)
 			{
 				Console.WriteLine(item.Kombinacio);
@@ -178,7 +197,7 @@
 			{
 				for (int j = i + 1; j < karakterek.Count; j++)
 				{
-					if (karakterek[i].EroSzint  < karakterek[j].EroSzint)
+					if (karakterek[i].Kombinacio < karakterek[j].Kombinacio)
 					{
 						Karakter csere = karakterek[i];
 						karakterek[i] = karakterek[j];
@@ -193,13 +212,22 @@
 			}
 		}
 
-
-		
-
-
-
-
-
+		//10. feladat
+		static void Csata(List<Karakter> karakterek, int szintje, int ereje)
+		{
+            Console.WriteLine("Vajon ki éli túl a csatát?");
+			for (int i = 0; i < karakterek.Count; i++)
+			{
+                if (karakterek[i].Szint < szintje || karakterek[i].Ero < ereje)
+                {
+                    Console.WriteLine($"{karakterek[i].Nev} nem élte túl a csatát");
+                }
+                else
+                {
+                    Console.WriteLine($"{karakterek[i].Nev} túlélte a csatát");
+                }
+            }
+		}
 
 	}
 }
