@@ -15,6 +15,9 @@
 			}
             Console.WriteLine();
             Legnagyobb(karakterek);
+            Console.WriteLine();
+			Atlagszint(karakterek);
+
 		}
 
 		static void Beolvasas(string filenev, List<Karakter> karakterek)
@@ -50,6 +53,17 @@
             Console.WriteLine($"ez a legnagyobb karakter: {valtozo.Nev}, {valtozo.Szint},  {valtozo.Ero} ");
 
         }
+
+		static void Atlagszint(List<Karakter> karakterek)
+		{
+			int atlag = 0;
+			for (int i = 0; i < karakterek.Count; i++)
+			{
+				atlag += karakterek[i].Szint;
+			}
+			atlag = atlag / karakterek.Count;
+			Console.WriteLine($"ez az átlagszint: {atlag} ");
+		}
 
 	}
 }
