@@ -25,6 +25,9 @@
 			KarakterStats(karakterek, 50);
             Console.WriteLine();
 			LegjobbHarom(karakterek.ToList());
+            Console.WriteLine();
+			Rangsorolas(karakterek);
+
 
 
 
@@ -157,10 +160,38 @@
             }
 		}
 
+		//9.feladat
+		static void Kombinacio(List<Karakter> karakterek)
+		{
+			foreach (var item in karakterek)
+			{
+				Console.WriteLine(item.Kombinacio);
+			}
+		}
+		static void Rangsorolas(List<Karakter> karakterek)
+		{
+			//Ezt együtt csináltuk Bogdán tanárnővel
+			for (int i = 0; i < karakterek.Count - 1; i++)
+			{
+				for (int j = i + 1; j < karakterek.Count; j++)
+				{
+					if (karakterek[i].Kombinacio + karakterek[i].Eletero > karakterek[j].Ero+ karakterek[j].Eletero)
+					{
+						Karakter csere = karakterek[i];
+						karakterek[i] = karakterek[j];
+						karakterek[j] = csere;
+					}
+				}
+			}
+			Console.WriteLine("Rangsorolás");
+			foreach (var tem in karakterek)
+			{
+				Console.WriteLine(tem);
+			}
+		}
 
 
-
-
+		
 
 
 

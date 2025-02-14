@@ -21,10 +21,24 @@ namespace filebeolvasas
 			this.ero = ero;
 		}
 
-		public string Nev { get => nev; set => nev = value; }
+		public string Nev
+		{ 
+			get
+			{
+				return this.nev;
+			} 
+			set => nev = value; }
 		public int Szint { get => szint; set => szint = value; }
 		public int Eletero { get => eletero; set => eletero = value; }
 		public int Ero { get => ero; set => ero = value; }
+
+		public int Kombinacio
+		{
+			get
+			{
+				return this.eletero + this.ero;
+			}
+		}
 
 		public override string? ToString()
 		{
