@@ -19,8 +19,11 @@
 			Atlagszint(karakterek);
             Console.WriteLine();
 			Rendezes(karakterek);
+            Console.WriteLine();
+			KarakterErossegSzintFelett(karakterek);
 
-        }
+
+		}
 
 		static void Beolvasas(string filenev, List<Karakter> karakterek)
 		{
@@ -42,6 +45,8 @@
 
 			}
 		}
+
+		//2.feladat
 		static void Legnagyobb(List<Karakter> karakterek) { 
 			//legnagyobb karakter
 			Karakter valtozo = karakterek[0];
@@ -56,6 +61,7 @@
 
         }
 
+		//3.feladat
 		static void Atlagszint(List<Karakter> karakterek)
 		{
 			int atlag = 0;
@@ -67,6 +73,7 @@
 			Console.WriteLine($"ez az átlagszint: {atlag} ");
 		}
 
+		//4.feladat
 		static void Rendezes(List<Karakter> karakterek)
 		{
 			//Ezt együtt csináltuk Bogdán tanárnővel
@@ -87,6 +94,19 @@
 			{
 				Console.WriteLine(tem);
             }
+		}
+
+		//5.feladat
+		static void KarakterErossegSzintFelett(List<Karakter> karakterek)
+		{
+			Console.WriteLine("Ezeknek a karaktereknek nayobb az ereje mint 50:");
+			for (int i = 0; i < karakterek.Count; i++)
+			{
+				if (karakterek[i].Ero > 50)
+				{
+					Console.WriteLine(karakterek[i]);
+                }
+			}
 		}
 
 
