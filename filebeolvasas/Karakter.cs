@@ -40,7 +40,15 @@ namespace filebeolvasas
 			}
 		}
 
-		public override string? ToString()
+        public int EroSzint
+        {
+            get
+            {
+                return this.szint + this.ero;
+            }
+        }
+
+        public override string? ToString()
 		{
 			return $"neve: {nev}, szintje: {szint}, életereje: {eletero}, ereje: {ero}";
 		}

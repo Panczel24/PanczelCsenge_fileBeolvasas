@@ -22,11 +22,13 @@
             Console.WriteLine();
 			KarakterErossegSzintFelett(karakterek);
             Console.WriteLine();
-			KarakterStats(karakterek, 50);
+			KarakterStats(karakterek, 7);
             Console.WriteLine();
 			LegjobbHarom(karakterek.ToList());
             Console.WriteLine();
 			Rangsorolas(karakterek);
+            Console.WriteLine();
+			//Kombinacio(karakterek.ToList());
 
 
 
@@ -124,7 +126,7 @@
 
 		static void KarakterStats(List<Karakter> karakterek, int szint)
 		{
-			Console.WriteLine($"Ezeknek a karaktereknek nayobb az ereje mint {szint}:");
+			Console.WriteLine($"Ezeknek a karaktereknek nayobb a szintje mint {szint}:");
 
 			for (int i = 0;i < karakterek.Count; i++)
 			{
@@ -146,7 +148,7 @@
 			{
 				for (int j = i + 1; j < karakterek.Count; j++)
 				{
-					if (karakterek[i].Ero > karakterek[j].Ero)
+					if (karakterek[i].EroSzint > karakterek[j].Ero)
 					{
 						Karakter csere = karakterek[i];
 						karakterek[i] = karakterek[j];
@@ -163,6 +165,7 @@
 		//9.feladat
 		static void Kombinacio(List<Karakter> karakterek)
 		{
+		Console.WriteLine();
 			foreach (var item in karakterek)
 			{
 				Console.WriteLine(item.Kombinacio);
@@ -175,7 +178,7 @@
 			{
 				for (int j = i + 1; j < karakterek.Count; j++)
 				{
-					if (karakterek[i].Kombinacio + karakterek[i].Eletero > karakterek[j].Ero+ karakterek[j].Eletero)
+					if (karakterek[i].EroSzint  < karakterek[j].EroSzint)
 					{
 						Karakter csere = karakterek[i];
 						karakterek[i] = karakterek[j];
@@ -183,7 +186,7 @@
 					}
 				}
 			}
-			Console.WriteLine("Rangsorolás");
+			Console.WriteLine("Rangsorolás Életerő és erősség alapján");
 			foreach (var tem in karakterek)
 			{
 				Console.WriteLine(tem);
